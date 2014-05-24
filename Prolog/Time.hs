@@ -9,5 +9,5 @@ today = do
     now <- getCurrentTime
     let day           = utctDay now
         (year,dayInt) = toJulianYearAndDay day
-        isLeapYear    = not $ isJulianLeapYear year
+        isLeapYear    = isJulianLeapYear year
     return $ dayOfYearToMonthAndDay isLeapYear dayInt
