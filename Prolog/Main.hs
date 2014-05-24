@@ -11,9 +11,12 @@ main :: IO ()
 main = do
     argv <- getArgs
     case length argv of
-        0 -> undefined -- gui/current date
+        0 -> guiLoop Nothing
         1 -> case head argv == "-d" of
             True  -> consoleLoop Nothing
             False -> guiLoop (Just (head argv))
-        2 -> undefined -- console custom date
+        2 -> case head argv == "-d" of
+            True  -> consoleLoop (Just (head $ tail argv))
+            False -> fatal 
+                (Just ("unrecognized option: " ++ head argv)) True
         _ -> fatal Nothing True

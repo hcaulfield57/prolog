@@ -6,6 +6,9 @@ module Prolog.FilePath
 
 import System.Directory
 import System.FilePath
+import System.IO
+
+import Prolog.Parse
 
 getPath :: (Int, Int) -> IO FilePath
 getPath (month,day) = do
@@ -19,4 +22,6 @@ createDir path = do
     createDirectoryIfMissing True dir
 
 printProlog :: FilePath -> IO ()
-printProlog = undefined
+printProlog path = do
+    prolog <- readFile path
+    putStr $ parseHTML prolog
