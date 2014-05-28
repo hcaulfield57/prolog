@@ -20,7 +20,7 @@ consoleLoop Nothing = do
         False -> do
             downloadProlog now path
             printProlog path
-consoleLoop (Just date) = do
+consoleLoop (Just date) =
     case parseDate date of
         (Just target) -> do
             path   <- getPath target

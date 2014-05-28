@@ -11,7 +11,7 @@ parseDate date
             d'    = filter (`notElem` "/") d
             month = read m
             day   = read d'
-        in (Just (month,day))
+        in Just (month,day)
     | otherwise = Nothing
 
 parseHTML :: String -> String
@@ -42,5 +42,5 @@ prettyHTML (t:ts) = case t of
         "P" -> char '\n' <> prettyHTML ts
         "p" -> char '\n' <> prettyHTML ts
         _   -> prettyHTML ts
-    (TagText txt)   -> text txt <> prettyHTML ts
-    _               -> prettyHTML ts
+    (TagText txt) -> text txt <> prettyHTML ts
+    _             -> prettyHTML ts
