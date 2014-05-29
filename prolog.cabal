@@ -10,5 +10,5 @@ cabal-version: >=1.8
 
 executable prolog
     main-is: Prolog/Main.hs
-    build-depends: base, directory, 
-        filepath, HTTP, pretty, tagsoup, time
+    build-depends: base, directory, filepath, 
+        gtk, HTTP, pretty, tagsoup, time

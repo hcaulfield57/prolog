@@ -16,10 +16,10 @@ consoleLoop Nothing = do
     exists <- doesFileExist path
     createDir path
     case exists of
-        True  -> printProlog path
+        True  -> putStr =<< printProlog path
         False -> do
             downloadProlog now path
-            printProlog path
+            putStr =<< printProlog path
 consoleLoop (Just date) = do
     case parseDate date of
         (Just target) -> do
@@ -27,9 +27,9 @@ consoleLoop (Just date) = do
             exists <- doesFileExist path
             createDir path
             case exists of
-                True  -> printProlog path
+                True  -> putStr =<< printProlog path
                 False -> do
                     downloadProlog target path
-                    printProlog path
+                    putStr =<< printProlog path
         Nothing       -> fatal
             (Just "malformed date") True

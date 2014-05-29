@@ -21,7 +21,7 @@ createDir path = do
     let dir = takeDirectory path
     createDirectoryIfMissing True dir
 
-printProlog :: FilePath -> IO ()
+printProlog :: FilePath -> IO String
 printProlog path = do
     prolog <- readFile path
-    putStr $ parseHTML prolog
+    return (parseHTML prolog)
