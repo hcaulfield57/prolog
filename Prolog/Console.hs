@@ -19,8 +19,13 @@ consoleLoop Nothing = do
         True  -> putStr =<< printProlog path
         False -> do
             downloadProlog now path
+<<<<<<< HEAD
             putStr =<< printProlog path
 consoleLoop (Just date) = do
+=======
+            printProlog path
+consoleLoop (Just date) =
+>>>>>>> a6f87a2081e53dc35ecb9573dcf9b5fa0e2ede76
     case parseDate date of
         (Just target) -> do
             path   <- getPath target
